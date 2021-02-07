@@ -36,17 +36,17 @@ class ProductList extends Component {
     const { products } = this.state;
     return (
       <div className="row">
-        
-          {products.map((product, i) => {
 
-            return (
+        {products.length>0 ? products.map((product, i) => {
 
-              <Product index={i} product={product} data={this.props} />
+          return (
+
+            <Product index={i} product={product} data={this.props} />
 
 
-            )
-          })}
-        
+          )
+        }) : 'loading...'}
+
       </div>
 
     );

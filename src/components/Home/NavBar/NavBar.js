@@ -29,7 +29,7 @@ class NavBar extends Component {
 
           {showCart && <Cart />} */}
 
-            <ul className="right hide-on-med-and-down">
+            <ul className="right">
 
 
               <li><a className="dropdown-trigger btn" href="#" data-target="dropdown1">{productsOnCart.length}</a></li>{TiShoppingCart}
