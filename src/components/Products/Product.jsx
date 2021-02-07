@@ -38,15 +38,18 @@ class Product extends Component {
     }
     return (
       <div className="col s4">
-      <div className="card small">
+      <div className="card medium">
         <div class="card-image">
           <img src={product.baseimageurl} />
-          <span class="card-title">${product.id}</span>
+          <span class="card-title">${product.id/2}</span>
         </div>
         {/* {`id: ${product.id} alto: ${product.height} ancho: ${product.width}`}
         {boton} */}
         <div class="card-content">
-          <p>{`id: ${product.id} alto: ${product.height} ancho: ${product.width}`}</p>
+          <h6>{`Producto: ${product.id}`}</h6>
+          <p>{`Este producto tiene las siguientes dimensiones
+          alto:${product.height}
+          ancho:${product.width}`}</p>
         </div>
 
         <div class="card-action">
