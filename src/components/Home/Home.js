@@ -23,13 +23,18 @@ class Home extends Component {
     });
 
   }
+  handleVaciar = () =>{
+    this.setState({
+      itemList:[]
+    });
+  }
   render() {
     const {itemList} = this.state;
     return (
       
       <div>
-        <NavBar productsOnCart={itemList} />
-        <ProductList handleAddition={this.handleAddition} handleRemove={this.handleRemove} />
+        <NavBar productsOnCart={itemList} handleRemove={this.handleRemove} handleVaciar={this.handleVaciar}/>
+        <ProductList handleAddition={this.handleAddition} handleRemove={this.handleRemove} productsOnCart={itemList}/>
       </div>
     );
   }

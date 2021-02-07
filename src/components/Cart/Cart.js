@@ -3,16 +3,38 @@ import React, { Component } from 'react'
 
 class Cart extends Component {
 
+  handleClickRemover = (product) => {
+    const { handleRemove } = this.props;
+    handleRemove(product);
 
+  }
+  handleVaciar = () => {
+    const {handleVaciar} = this.props;
+    handleVaciar();
+  }
   render() {
-    const {productsOnCart} = this.props;
+    const { productsOnCart} = this.props;
+    let total = 0;
     return (
-      <ul id="dropdown1" className="dropdown-content">
-        {productsOnCart.map((product,i)=>{
-          return <li key={i}>{product.id}</li>
-          
-        })}
-      </ul>
+
+      <div id="dropdown1" className="dropdown-content">
+        <button onClick={this.handleVaciar}>Vaciar</button>
+        <h5>Carrito</h5>
+        <ul>
+          {productsOnCart.map((product, i) => {
+            total += product.id / 2;
+            return (
+              <li key={i}>
+                {`Producto: ${product.id}`}
+                <button onClick={() => this.handleClickRemover(product)}>Eliminar</button>
+              </li>
+
+            )
+
+          })}
+        </ul>
+        <p>{`Total     :S/ ${total}`}</p>
+      </div>
 
     );
   }

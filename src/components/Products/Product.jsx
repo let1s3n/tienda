@@ -12,7 +12,22 @@ class Product extends Component {
   componentDidMount() {
     M.AutoInit();
   }
+  componentDidUpdate(prevProps) {
 
+    if (prevProps.data.productsOnCart !== this.props.data.productsOnCart) {
+
+      if (this.props.data.productsOnCart.length == 0) {
+        this.setState({
+          flag: true
+        })
+      } else if (prevProps.data.productsOnCart.indexOf(this.props.product) !== -1 && this.props.data.productsOnCart.indexOf(this.props.product) === -1) {
+        this.setState({
+          flag: !this.state.flag
+        })
+      }
+
+    }
+  }
 
   handleClickAgregar = () => {
     const { index, product, data } = this.props;
@@ -25,9 +40,9 @@ class Product extends Component {
   handleClickRemover = () => {
     const { index, product, data } = this.props;
     data.handleRemove(product);
-    this.setState({
+   /*  this.setState({
       flag: !this.state.flag
-    });
+    }); */
   }
 
 
