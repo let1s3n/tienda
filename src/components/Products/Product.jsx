@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import M from 'materialize-css/dist/js/materialize'
 
 class Product extends Component {
   constructor(props) {
@@ -8,6 +8,12 @@ class Product extends Component {
       flag: true
     }
   }
+
+  componentDidMount() {
+    M.AutoInit();
+  }
+
+
   handleClickAgregar = () => {
     const { index, product, data } = this.props;
     data.handleAddition(product);
@@ -26,6 +32,7 @@ class Product extends Component {
 
 
 
+
   render() {
     const { product } = this.props;
     const { flag } = this.state;
@@ -38,26 +45,61 @@ class Product extends Component {
     }
     return (
       <div className="col s4">
-      <div className="card medium">
-        <div class="card-image">
-          <img src={product.baseimageurl} />
-          <span class="card-title">${product.id/2}</span>
-        </div>
-        {/* {`id: ${product.id} alto: ${product.height} ancho: ${product.width}`}
+        <div className="card medium">
+          <div class="card-image">
+            <img src={product.baseimageurl} />
+            <span class="card-title">${product.id / 2}</span>
+          </div>
+          {/* {`id: ${product.id} alto: ${product.height} ancho: ${product.width}`}
         {boton} */}
-        <div class="card-content">
-          <h6>{`Producto: ${product.id}`}</h6>
-          <p>{`Este producto tiene las siguientes dimensiones
+          <div class="card-content">
+            <h6>{`Producto: ${product.id}`}</h6>
+            <p>{`Este producto tiene las siguientes dimensiones
           alto:${product.height}
           ancho:${product.width}`}</p>
+          </div>
+
+          <div class="card-action">
+            <button data-target={product.id} class="btn modal-trigger">Vista Previa</button>
+
+            {boton}
+          </div>
+
+
+
         </div>
 
-        <div class="card-action">
-          {boton}
+        <div id={product.id} className="modal">
+          <div className="modal-content">
+
+            <div className="card medium">
+              <div class="card-image">
+                <img src={product.baseimageurl} />
+                <span class="card-title">${product.id / 2}</span>
+              </div>
+
+              <div class="card-content">
+                <h6>{`Producto: ${product.id}`}</h6>
+                <p>{`Este producto tiene las siguientes dimensiones
+          alto:${product.height}
+          ancho:${product.width}`}</p>
+              </div>
+
+              <div class="card-action">
+                {boton}
+              </div>
+
+
+            </div>
+
+          </div>
+          <div className="modal-footer">
+            <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
         </div>
 
 
-      </div>
+
       </div>
     );
   }

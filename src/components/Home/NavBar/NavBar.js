@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { TiShoppingCart } from "react-icons/ti";
 import M from 'materialize-css/dist/js/materialize'
+import Cart from '../../Cart/Cart'
 class NavBar extends Component {
   state = {
     showCart: false
@@ -39,12 +40,7 @@ class NavBar extends Component {
 
         </nav>
 
-        <ul id="dropdown1" className="dropdown-content">
-          <li><a href="#!">one</a></li>
-          <li><a href="#!">two</a></li>
-          <li className="divider"></li>
-          <li><a href="#!">three</a></li>
-        </ul>
+        <Cart productsOnCart={productsOnCart}/>
 
       </div>
 
