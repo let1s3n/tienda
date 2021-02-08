@@ -22,10 +22,10 @@ class Cart extends Component {
         <h5>Carrito</h5>
         <ul>
           {productsOnCart.map((product, i) => {
-            total += product.id / 2;
+            total += parseFloat((product.id / 150).toFixed(2));
             return (
               <li key={i} className="item-carrito">
-                {`Producto: ${product.id}`}<button className="btn-flat boton-eliminar-item" onClick={() => this.handleClickRemover(product)}><IoIosClose /></button>
+                {`ID Producto: ${product.id}`}<button className="btn-flat boton-eliminar-item" onClick={() => this.handleClickRemover(product)}><IoIosClose /></button>
               </li>
             )
           })}

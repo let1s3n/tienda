@@ -4,9 +4,6 @@ import M from 'materialize-css/dist/js/materialize'
 import Cart from '../../Cart/Cart'
 
 class NavBar extends Component {
-  state = {
-    showCart: false
-  }
 
   componentDidMount() {
     document.addEventListener('DOMContentLoaded', function () {

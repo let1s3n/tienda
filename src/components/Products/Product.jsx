@@ -54,10 +54,10 @@ class Product extends Component {
         <div className="card large">
           <div className="card-image">
             <img src={product.baseimageurl} />
-            <span className="card-title">{`S/ ${product.id / 2}`}</span>
+            <span className="card-title">{`S/ ${parseFloat((product.id / 150).toFixed(2))}`}</span>
           </div>
           <div className="card-content multiline">
-            <h6>{`Producto: ${product.id}`}</h6>
+            <h6>{`ID Producto: ${product.id}`}</h6>
             <p>{`Fecha de creación: ${product.date}`}</p>
           </div>
 
@@ -73,11 +73,11 @@ class Product extends Component {
             <div className="card large">
               <div className="card-image">
                 <img src={product.baseimageurl} />
-                <span className="card-title">{`S/ ${product.id / 2}`}</span>
+                <span className="card-title">{`S/ ${parseFloat((product.id / 150).toFixed(2))}`}</span>
               </div>
 
               <div className="card-content multiline">
-                <h6>{`Producto: ${product.id}`}</h6>
+                <h6>{`ID Producto: ${product.id}`}</h6>
                 <h6>Información Extra</h6>
                 <p>{`Dimensiones del producto:
                 Alto: ${product.height} Ancho: ${product.width}`}
