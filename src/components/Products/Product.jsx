@@ -40,9 +40,9 @@ class Product extends Component {
   handleClickRemover = () => {
     const { index, product, data } = this.props;
     data.handleRemove(product);
-   /*  this.setState({
-      flag: !this.state.flag
-    }); */
+    /*  this.setState({
+       flag: !this.state.flag
+     }); */
   }
 
 
@@ -53,30 +53,29 @@ class Product extends Component {
     const { flag } = this.state;
     let boton;
     if (flag) {
-      boton = <button onClick={this.handleClickAgregar}>Agregar</button>;
+      boton = <button className="waves-effect waves-light btn boton-agregar" onClick={this.handleClickAgregar}>Agregar</button>;
 
     } else {
-      boton = <button onClick={this.handleClickRemover}>Eliminar</button>;
+      boton = <button className="waves-effect waves-light btn boton-eliminar" onClick={this.handleClickRemover}>Eliminar</button>;
     }
     return (
       <div className="col s4">
-        <div className="card medium">
-          <div class="card-image">
+        <div className="card large">
+          <div className="card-image">
             <img src={product.baseimageurl} />
-            <span class="card-title">${product.id / 2}</span>
+            <span className="card-title">{`S/ ${product.id / 2}`}</span>
           </div>
           {/* {`id: ${product.id} alto: ${product.height} ancho: ${product.width}`}
         {boton} */}
-          <div class="card-content">
+          <div className="card-content multiline">
             <h6>{`Producto: ${product.id}`}</h6>
-            <p>{`Este producto tiene las siguientes dimensiones
-          alto:${product.height}
-          ancho:${product.width}`}</p>
+            <p>{`Fecha de creación: ${product.date}`}</p>
           </div>
 
-          <div class="card-action">
-            <button data-target={product.id} class="btn modal-trigger">Vista Previa</button>
-
+          <div className="card-action">
+            <button data-target={product.id} className="waves-effect waves-teal btn-flat modal-trigger">Vista Previa</button>
+           
+           
             {boton}
           </div>
 
@@ -87,20 +86,22 @@ class Product extends Component {
         <div id={product.id} className="modal">
           <div className="modal-content">
 
-            <div className="card medium">
-              <div class="card-image">
+            <div className="card large">
+              <div className="card-image">
                 <img src={product.baseimageurl} />
-                <span class="card-title">${product.id / 2}</span>
+                <span className="card-title">{`S/ ${product.id / 2}`}</span>
               </div>
 
-              <div class="card-content">
+              <div className="card-content multiline">
                 <h6>{`Producto: ${product.id}`}</h6>
-                <p>{`Este producto tiene las siguientes dimensiones
-          alto:${product.height}
-          ancho:${product.width}`}</p>
+
+                <h6>Información Extra</h6>
+                <p>{`Dimensiones del producto:
+                Alto: ${product.height} Ancho: ${product.width}`}
+                </p>
               </div>
 
-              <div class="card-action">
+              <div className="card-action">
                 {boton}
               </div>
 
@@ -109,7 +110,7 @@ class Product extends Component {
 
           </div>
           <div className="modal-footer">
-            <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <a href="#!" className="modal-close waves-effect waves-green btn-flat">Cerrar</a>
           </div>
         </div>
 

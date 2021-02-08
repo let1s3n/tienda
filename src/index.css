@@ -1,3 +1,37 @@
+.multiline{
+  white-space: pre-line;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: bold;
+}
+
+.card .card-title{
+  font-weight: 400;
+}
+
+.btn,.btn-large,.btn-small{
+  background-color: rgb(40,44,52);
+  border-radius: 12px;
+}
+.btn-flat{
+  border-radius: 12px;
+
+}
+.boton-agregar,.boton-agregar:hover,.boton-agregar:active,.boton-agregar:visited,.boton-agregar:checked{
+  background-color:#2196f3 !important;
+
+}
+.boton-eliminar,.boton-eliminar:hover,.boton-eliminar:active,.boton-eliminar:visited,.boton-eliminar:checked{
+  background-color:#f44336 !important;
+}
+
+
+.boton-vaciar{
+  position:absolute;
+  top:0;
+  right:0
+}
 nav{
   background-color: rgb(40,44,52);
 }
@@ -9,4 +43,7 @@ nav{
 
 .dropdown-content{
   color:rgba(0,0,0,0.87);
+  width:10% !important;
+  padding:30px;
 }
+

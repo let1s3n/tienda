@@ -19,7 +19,7 @@ class NavBar extends Component {
     });
   } */
   render() {
-    const { productsOnCart,handleRemove,handleVaciar } = this.props;
+    const { productsOnCart, handleRemove, handleVaciar } = this.props;
     /*  const { showCart } = this.state; */
     return (
       <div>
@@ -33,14 +33,14 @@ class NavBar extends Component {
             <ul className="right">
 
 
-              <li><a className="dropdown-trigger btn" href="#" data-target="dropdown1">{`${productsOnCart.length}        `}<TiShoppingCart /></a></li>
+              <li><a className="dropdown-trigger btn multiline counter-cart" href="#" data-target="dropdown1">{productsOnCart.length} <TiShoppingCart /></a></li>
             </ul>
           </div>
 
 
         </nav>
 
-        <Cart productsOnCart={productsOnCart} handleRemove={handleRemove} handleVaciar={handleVaciar}/>
+        <Cart productsOnCart={productsOnCart} handleRemove={handleRemove} handleVaciar={handleVaciar} />
 
       </div>
 
