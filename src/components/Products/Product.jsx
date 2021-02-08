@@ -50,7 +50,7 @@ class Product extends Component {
     }
 
     return (
-      <div className="col s4">
+      <div className="col s12 m6 l4">
         <div className="card large">
           <div className="card-image">
             <img src={product.baseimageurl} />
