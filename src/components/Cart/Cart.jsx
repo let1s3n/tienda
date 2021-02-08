@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { IoIosClose } from "react-icons/io";
 
 class Cart extends Component {
 
@@ -9,11 +9,11 @@ class Cart extends Component {
 
   }
   handleVaciar = () => {
-    const {handleVaciar} = this.props;
+    const { handleVaciar } = this.props;
     handleVaciar();
   }
   render() {
-    const { productsOnCart} = this.props;
+    const { productsOnCart } = this.props;
     let total = 0;
     return (
 
@@ -24,16 +24,15 @@ class Cart extends Component {
           {productsOnCart.map((product, i) => {
             total += product.id / 2;
             return (
-              <li key={i}>
-                {`Producto: ${product.id}`}
-                <button className="boton-eliminarItem" onClick={() => this.handleClickRemover(product)}>Eliminar</button>
+              <li key={i} className="item-carrito">
+                {`Producto: ${product.id}`}<button className="btn-flat boton-eliminar-item" onClick={() => this.handleClickRemover(product)}><IoIosClose /></button>
               </li>
 
             )
 
           })}
         </ul>
-        <p>{`Total     :S/ ${total}`}</p>
+        <p className="multiline"><strong>{`Total     :`}</strong> S/ {total}</p>
       </div>
 
     );

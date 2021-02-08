@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { TiShoppingCart } from "react-icons/ti";
+
 import M from 'materialize-css/dist/js/materialize'
 import Cart from '../../Cart/Cart'
 class NavBar extends Component {
