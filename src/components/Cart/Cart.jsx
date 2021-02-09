@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { IoIosClose } from "react-icons/io";
+import { TiShoppingCart } from "react-icons/ti";
+import { Dropdown, Button } from 'react-materialize'
 
 class Cart extends Component {
 
@@ -16,23 +18,36 @@ class Cart extends Component {
   render() {
     const { productsOnCart } = this.props;
     let total = 0;
-    return (
-      <div id="dropdown1" className="dropdown-content">
-        <button className="waves-effect waves-teal btn-flat boton-vaciar" onClick={this.handleVaciar}>Vaciar</button>
-        <h5>Carrito</h5>
-        <ul>
-          {productsOnCart.map((product, i) => {
-            total += parseFloat((product.id / 150).toFixed(2));
-            return (
-              <li key={i} className="item-carrito">
-                {`ID Producto: ${product.id}`}<button className="btn-flat boton-eliminar-item" onClick={() => this.handleClickRemover(product)}><IoIosClose /></button>
-              </li>
-            )
-          })}
-        </ul>
 
-        <p className="multiline"><strong>{`Total: `}</strong> S/ {total}</p>
-      </div>
+    return (
+
+
+
+      <Dropdown
+        id="dropdown1"
+        trigger={<Button className="multiline counter-cart" href="#">{productsOnCart.length} <TiShoppingCart /> </Button>}
+        /* options={{
+          closeOnClick: false,
+        }} */
+      >
+        <div>
+          <Button flat waves="effect" waves="teal" className="boton-vaciar" onClick={() => this.handleVaciar()}>Vaciar</Button>
+          <h5>Carrito</h5>
+
+          <ul>
+            {productsOnCart.map((product, i) => {
+              total += (product.id / 150);
+              return (
+                <li key={i} className="item-carrito">
+                  {`ID Producto: ${product.id}`}<Button flat className="boton-eliminar-item" onClick={() => this.handleClickRemover(product)}><IoIosClose /></Button>
+                </li>
+              )
+            })}
+          </ul>
+
+          <p className="multiline"><strong>{`Total: `}</strong> S/ {parseFloat(total.toFixed(2))}</p>
+        </div>
+      </Dropdown>
 
     );
   }

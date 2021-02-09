@@ -33,9 +33,11 @@ h1,h2,h3,h4,h5,h6{
   right:0
 }
 
-.item-carrito{
+.dropdown-content .item-carrito{
   position:relative;
 }
+
+
 .boton-eliminar-item{
   position:absolute;
   right:0;
@@ -50,9 +52,21 @@ nav{
 }
 
 .dropdown-content{
-  color:rgba(0,0,0,0.87);
+  color:rgba(0,0,0,0.87) !important;
   width:250px !important;
-  padding:30px;
+  padding:10px 30px 30px 30px !important;
+}
+.dropdown-content li:hover{
+  background-color: unset;
+}
+li.item-carrito:hover{
+  background-color: #eee;
+}
+.item-carrito:first-child{
+  margin-top:20px;
+}
+.item-carrito:last-child{
+  margin-bottom:20px;
 }
 @media only screen and (max-width: 600px) {
 

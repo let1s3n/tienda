@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import NavBar from './NavBar/NavBar'
+import { Navbar } from 'react-materialize';
+import Cart from '../Cart/Cart'
 import ProductList from '../Products/ProductList'
 
 class Home extends Component {
@@ -33,7 +34,12 @@ class Home extends Component {
     const { itemList } = this.state;
     return (
       <div>
-        <NavBar productsOnCart={itemList} handleRemove={this.handleRemove} handleVaciar={this.handleVaciar} />
+        <Navbar
+          alignLinks="right"
+          brand={<a className="brand-logo" href="#!">Tienda</a>}
+        >
+          <Cart productsOnCart={itemList} handleRemove={this.handleRemove} handleVaciar={this.handleVaciar} />
+        </Navbar>
         <ProductList handleAddition={this.handleAddition} handleRemove={this.handleRemove} productsOnCart={itemList} />
       </div>
     );

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Product from './Product'
+import 'materialize-css';
+import { Row } from 'react-materialize';
 
 class ProductList extends Component {
   constructor(props) {
@@ -30,14 +32,14 @@ class ProductList extends Component {
   render() {
     const { products } = this.state;
     return (
-      <div className="row">
+      <Row>
         {products.length > 0 ? products.map((product, i) => {
           return (
             <Product index={i} product={product} data={this.props} />
           )
         }) : 'loading...'}
 
-      </div>
+      </Row>
     );
   }
 }
