@@ -1,49 +1,37 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { Navbar } from 'react-materialize';
 import Cart from '../Cart/Cart'
 import ProductList from '../Products/ProductList'
 
-class Home extends Component {
-  state = {
-    itemList: []
+const Home = () => {
+
+  const [itemList, setItemList] = useState([]);
+
+  const handleAddition = (item) => {
+    setItemList([...itemList, item]);
   }
 
-  handleAddition = (item) => {
-    this.setState({
-      itemList: [...this.state.itemList, item]
-    });
-  }
-
-  handleRemove = (item) => {
-    const { itemList } = this.state;
+  const handleRemove = (item) => {
     const newItemList = itemList.filter(product => product.id !== item.id);
-
-    this.setState({
-      itemList: newItemList
-    });
-
+    setItemList(newItemList);
   }
 
-  handleVaciar = () => {
-    this.setState({
-      itemList: []
-    });
+  const handleVaciar = () => {
+    setItemList([]);
   }
 
-  render() {
-    const { itemList } = this.state;
-    return (
-      <div>
-        <Navbar
-          alignLinks="right"
-          brand={<a className="brand-logo" href="#!">Tienda</a>}
-        >
-          <Cart productsOnCart={itemList} handleRemove={this.handleRemove} handleVaciar={this.handleVaciar} />
-        </Navbar>
-        <ProductList handleAddition={this.handleAddition} handleRemove={this.handleRemove} productsOnCart={itemList} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Navbar
+        alignLinks="right"
+        brand={<a className="brand-logo" href="#!">Tienda</a>}
+      >
+        <Cart productsOnCart={itemList} handleRemove={handleRemove} handleVaciar={handleVaciar} />
+      </Navbar>
+      <ProductList handleAddition={handleAddition} handleRemove={handleRemove} productsOnCart={itemList} />
+    </div>
+  );
+
 }
 
 export default Home;
