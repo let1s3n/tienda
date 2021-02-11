@@ -25,6 +25,7 @@ const Home = () => {
       <Navbar
         alignLinks="right"
         brand={<a className="brand-logo" href="#!">Tienda</a>}
+        
       >
         <Cart productsOnCart={itemList} handleRemove={handleRemove} handleVaciar={handleVaciar} />
       </Navbar>
